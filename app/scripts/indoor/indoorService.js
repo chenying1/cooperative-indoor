@@ -148,7 +148,7 @@ angular.module('CooperativeIndoorMap')
             DrawEditHandler.enableFeatureDrawEidt(indoor._lines[level]);
             DrawEditHandler.enableFeatureDrawEidt(indoor._pois[level]);
           }
-        }
+        },
 
         disableIndoorEdit: function () {
           let indoor = indoors[indoorId]
