@@ -5,6 +5,18 @@
       <button type="button" class="btn btn-default" style="float: right" ng-click="deleteFeature()">
         <span class="glyphicon glyphicon-trash"></span>  Delete
       </button>
+      <div ng-class="{'hide': hideNewProperty}">
+        <input id="newKey" type="text" ng-model="newKey">
+        <input id="newValue" type="text" ng-model="newValue" ng-keypress="newProperty($event)">
+        <input type="button" class="btn btn-default" ng-click="newProperty()" value="Save">
+      </div>
+      <div class="input-group" ng-class="{'hide': hideNewProperty}">
+        <input id="newKey1" type="text" ng-model="newKey">
+        <input id="newValue1" class="form-control" type="text" ng-model="newValue" ng-keypress="newProperty($event)">
+        <span class="input-group-btn">
+          <button class="btn btn-default propertyRemoveBtn" type="button" ng-click="newProperty()">+</button>
+        </span>
+      </div>
       <br>
       Last edited by: {{selectedFeature.user}}
       <select ng-model="$parent.selectedCategory" id="categorySelect" ng-change="selectPresets()">
@@ -40,17 +52,8 @@
       Click on a feature to open it's properties...
     </div>
 
-    <div ng-class="{'hide': hideNewProperty}">
-      <h3>New Property</h3>
-      <label for="newKey">Property Name</label>
-      <br>
-      <input id="newKey" type="text" ng-model="newKey">
-      <br>
-      <label for="newValue">Value</label>
-      <br>
-      <input id="newValue" type="text" ng-model="newValue" ng-keypress="newProperty($event)">
-      <input type="button" class="btn btn-default" ng-click="newProperty()" value="Save">
-    </div>
+
+
   </div>
 
   <div class="otherEditors" ng-show="editByUser.length > 0">
